@@ -36,6 +36,7 @@ public class Controller implements Initializable {
     AudioClip shoot;
     AudioClip score;
     AudioClip explode;
+    AudioClip spaceshipGotShot;
     double width;
     double height;
     String scoreBoard;
@@ -98,6 +99,7 @@ public class Controller implements Initializable {
         shoot = new AudioClip("file:src/"+theme+"/laser.mp3");
         score = new AudioClip("file:src/"+theme+"/score.mp3");
         explode = new AudioClip("file:src/"+theme+"/explode.mp3");
+        spaceshipGotShot = new AudioClip("file:src/"+theme+"/spaceshipIsShot.mp3");
 
         Sprite background = new Sprite(theme +"/background.gif");
         Sprite reward = new Sprite(theme +"/reward.gif");
@@ -176,7 +178,7 @@ public class Controller implements Initializable {
                 for(Sprite asteroid:asteroidList){
                     //if the spaceship collides an asteroid
                     if(asteroid.overlaps(spaceship)){
-                        explode.play();
+                        spaceshipGotShot.play();
                         collide.image = new Image(theme +"/collide.gif");
                         collide.generate(spaceship.position.x, spaceship.position.y, 2);
                         rewardCombo=0;
